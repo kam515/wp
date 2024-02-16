@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Executive Summary</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="Executive_Summary_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Executive_Summary_files/libs/quarto-html/quarto.js"></script>
+<script src="Executive_Summary_files/libs/quarto-html/popper.min.js"></script>
+<script src="Executive_Summary_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Executive_Summary_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Executive_Summary_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Executive_Summary_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Executive_Summary_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Executive_Summary_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Executive_Summary_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Executive Summary</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>This object-oriented data science toolbox code consists of several classes aimed at providing a comprehensive framework for handling, cleaning, and exploring various types of datasets, as well as implementing different classification algorithms. The code demonstrates the principles of multiple inheritance and hierarchy, allowing for a logically and efficiently organized toolkit.</p>
+<p><img src="./Hierarchy_Diagram.png" alt="Hierarchy Diagram" width="50%"></p>
+<p>The DataSet class serves as an abstract base class (ABC) for all dataset types. Subclasses of DataSet are designed to handle specific types of data, such as quantitative data (QuantDataSet), qualitative data (QualDataSet), time series data (TimeSeriesDataSet), and text data (TextDataSet). Each subclass inherits the base methods from DataSet and provides its own implementation of the clean and explore methods tailored to the specific data type. Unique visualizations are included that are interpretable and appropriate for each data type (e.g.&nbsp;a word cloud for text data, time series plots for time series data, and more).</p>
+<p>The HeterogeneousDataSet class is a composition of multiple DataSet objects. It can handle datasets containing multiple data types by maintaining a list of DataSet objects and providing methods for cleaning and exploring each dataset in the list. It also contains a select method that allows for segmenting a larger dataset and many more possible use cases.</p>
+<p>The ClassifierAlgorithm class serves as a base class for defining different classifier algorithms. It provides an abstract structure for training and testing classification models. Subclasses of ClassifierAlgorithm include simpleKNNClassifier and DecisionTreeClassifier. These subclasses inherit the base methods and provide their own implementation of the train and test methods for their specific algorithms. The DecisionTreeClassifier class also inherits from the Tree class, demonstrating the concept of multiple inheritance.</p>
+<p>The TreeNode and BinarySearchTree classes are used in the DecisionTreeClassifier to create and manage the decision tree structure.</p>
+<p>The Experiment class is designed to perform experiments using different classifiers on a given dataset. It contains methods for performing k-fold cross-validation, computing classifier accuracy, and generating confusion matrices for each classifier.</p>
+<p>In summary, this object-oriented data science toolbox code provides a flexible and extensible framework for handling various types of datasets and implementing different classification algorithms. The use of inheritance allows for easy customization and the addition of new dataset types and classification algorithms. The major classes and their purposes are as follows:</p>
+<ul>
+<li>DataSet: Base class for handling datasets.</li>
+<li>QuantDataSet, QualDataSet, TimeSeriesDataSet, TextDataSet: Subclasses for handling specific data types.</li>
+<li>HeterogeneousDataSet: Class for handling datasets with multiple data types.</li>
+<li>ClassifierAlgorithm: Base class for defining classifier algorithms.</li>
+<li>simpleKNNClassifier, DecisionTreeClassifier: Subclasses for implementing specific classification algorithms.</li>
+<li>TreeNode, BinarySearchTree: Classes for creating and managing decision trees in the DecisionTreeClassifier.</li>
+<li>Tree: Base class for defining tree structures.</li>
+<li>Experiment: Class for performing experiments using different classifiers on a given dataset.</li>
+</ul>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
